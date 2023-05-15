@@ -7,4 +7,6 @@ import java.util.List;
 public interface CryptoCurrencyService {
 
     List<CryptoCurrency> findAll();
+
+    CryptoCurrency getById(Long id);
 }
