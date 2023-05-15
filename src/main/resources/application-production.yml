@@ -1,7 +1,8 @@
 spring:
-  profiles:
-    active: @maven.profile@
   datasource:
     url: jdbc:postgresql://localhost:54320/db
     username: user
     password: pass
+logging:
+  level:
+    root: WARN
