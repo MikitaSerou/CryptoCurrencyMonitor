@@ -1,4 +1,4 @@
-package com.serov.cryptocurrencymonitor.model;
+package com.serov.cryptocurrencymonitor.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

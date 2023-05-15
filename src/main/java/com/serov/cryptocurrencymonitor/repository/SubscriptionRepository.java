@@ -1,7 +1,7 @@
 package com.serov.cryptocurrencymonitor.repository;
 
-import com.serov.cryptocurrencymonitor.model.Subscription;
-import org.springframework.data.repository.CrudRepository;
+import com.serov.cryptocurrencymonitor.entity.Subscription;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface SubscriptionRepository extends CrudRepository<Subscription, Long> {
+public interface SubscriptionRepository extends JpaRepository<Subscription, Long> {
 }

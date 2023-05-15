@@ -1,4 +1,4 @@
-package com.serov.cryptocurrencymonitor.model;
+package com.serov.cryptocurrencymonitor.entity;
 
 import jakarta.persistence.*;
 import lombok.Getter;
