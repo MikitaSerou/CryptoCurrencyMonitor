@@ -9,4 +9,6 @@ public interface CryptoCurrencyService {
     List<CryptoCurrency> findAll();
 
     CryptoCurrency getById(Long id);
+
+    List<Long> findAllIds();
 }

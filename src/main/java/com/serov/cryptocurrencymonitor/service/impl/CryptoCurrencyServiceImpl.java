@@ -30,4 +30,9 @@ public class CryptoCurrencyServiceImpl implements CryptoCurrencyService {
                 .orElseThrow(() -> new CurrencyException("Can not find currency by id: " + id));
     }
 
+    @Override
+    public List<Long> findAllIds() {
+        return cryptoCurrencyrepository.findAllIds();
+    }
+
 }
