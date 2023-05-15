@@ -1,5 +1,5 @@
 spring:
   datasource:
-    url: jdbc:postgresql://uwp-serov:54320/db
+    url: jdbc:postgresql://localhost:54320/db
     username: user
     password: pass
