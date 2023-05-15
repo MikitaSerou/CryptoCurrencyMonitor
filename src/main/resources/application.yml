@@ -5,3 +5,5 @@ spring:
     url: jdbc:postgresql://localhost:54320/db
     username: user
     password: pass
+scheduler:
+  rate: 60000

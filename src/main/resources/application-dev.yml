@@ -6,3 +6,5 @@ spring:
 logging:
   level:
     root: DEBUG
+scheduler:
+  rate: 5000
