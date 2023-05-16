@@ -15,7 +15,7 @@ public class SchedulerService {
     private final CryptoCurrencyService cryptoCurrencyService;
     private final SubscriptionService subscriptionService;
 
-    @Scheduled(fixedRateString = "${scheduler.rate}")
+    @Scheduled(cron = "${scheduler.cron}")
     public void updateInformation() {
         log.warn("Currencies info updating");
         cryptoCurrencyService.updateCurrencies();

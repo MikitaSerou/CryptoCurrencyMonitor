@@ -5,6 +5,6 @@ spring:
     password: pass
 logging:
   level:
-    root: DEBUG
+    root: INFO
 scheduler:
-  rate: 5000
+  cron: "0 * * * * *"
