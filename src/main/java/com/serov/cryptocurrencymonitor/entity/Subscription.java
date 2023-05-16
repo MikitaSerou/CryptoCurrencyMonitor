@@ -1,15 +1,18 @@
 package com.serov.cryptocurrencymonitor.entity;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 @Getter
 @Setter
+@ToString
 @Entity
 @Table(name = "subscriptions")
+@AllArgsConstructor
 public class Subscription {
+
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     private Long id;
 
@@ -21,6 +24,15 @@ public class Subscription {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "crypto_currency_id")
+    @ToString.Exclude
     private CryptoCurrency currency;
 
+    public Subscription() {
+    }
+
+    public Subscription(@NonNull Double subscribedPrice, @NonNull String username, CryptoCurrency currency) {
+        this.subscribedPrice = subscribedPrice;
+        this.username = username;
+        this.currency = currency;
+    }
 }
