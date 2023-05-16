@@ -10,12 +10,13 @@
     </parent>
     <groupId>com.serov</groupId>
     <artifactId>CryptoCurrencyMonitor</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>1.0.0</version>
     <name>CryptoCurrencyMonitor</name>
     <description>CryptoCurrencyMonitor</description>
     <properties>
         <java.version>17</java.version>
         <gson.version>2.10.1</gson.version>
+        <springdoc-openapi.version>3.0.0</springdoc-openapi.version>
     </properties>
 
     <profiles>
@@ -89,6 +90,16 @@
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>org.springdoc</groupId>
+            <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+            <version>2.0.3</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springdoc</groupId>
+            <artifactId>springdoc-openapi-ui</artifactId>
+            <version>1.6.15</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
