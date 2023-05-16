@@ -1,4 +1,4 @@
-package com.serov.cryptocurrencymonitor.payload.dto;
+package com.serov.cryptocurrencymonitor.payload.request;
 
 public record SubscriptionDto(String username, String symbol) {
 }

@@ -1,7 +1,7 @@
 package com.serov.cryptocurrencymonitor.controller;
 
-import com.serov.cryptocurrencymonitor.payload.ResponseMessage;
-import com.serov.cryptocurrencymonitor.payload.dto.SubscriptionDto;
+import com.serov.cryptocurrencymonitor.payload.response.ResponseMessage;
+import com.serov.cryptocurrencymonitor.payload.request.SubscriptionDto;
 import com.serov.cryptocurrencymonitor.service.SubscriptionService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

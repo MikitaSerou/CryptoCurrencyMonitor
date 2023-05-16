@@ -1,6 +1,7 @@
 package com.serov.cryptocurrencymonitor.controller;
 
 import com.serov.cryptocurrencymonitor.entity.CryptoCurrency;
+import com.serov.cryptocurrencymonitor.payload.response.AvailableCurrencyResponse;
 import com.serov.cryptocurrencymonitor.service.CryptoCurrencyService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -20,8 +21,8 @@ public class CryptoCurrencyController {
     private final CryptoCurrencyService cryptoCurrencyService;
 
     @GetMapping
-    public List<CryptoCurrency> list() {
-        return cryptoCurrencyService.findAll();
+    public List<AvailableCurrencyResponse> list() {
+        return cryptoCurrencyService.getAvailableCurrenciesList();
     }
 
     @GetMapping("/{id}")

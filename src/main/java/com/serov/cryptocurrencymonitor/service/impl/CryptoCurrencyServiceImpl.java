@@ -2,6 +2,7 @@ package com.serov.cryptocurrencymonitor.service.impl;
 
 import com.serov.cryptocurrencymonitor.entity.CryptoCurrency;
 import com.serov.cryptocurrencymonitor.exception.CurrencyException;
+import com.serov.cryptocurrencymonitor.payload.response.AvailableCurrencyResponse;
 import com.serov.cryptocurrencymonitor.repository.CryptoCurrencyRepository;
 import com.serov.cryptocurrencymonitor.service.CryptoCurrencyService;
 import lombok.RequiredArgsConstructor;
@@ -15,7 +16,13 @@ import java.util.List;
 @RequiredArgsConstructor
 public class CryptoCurrencyServiceImpl implements CryptoCurrencyService {
 
+    private final List<AvailableCurrencyResponse> availableCurrencies;
     private final CryptoCurrencyRepository cryptoCurrencyrepository;
+
+    @Override
+    public List<AvailableCurrencyResponse> getAvailableCurrenciesList() {
+        return availableCurrencies;
+    }
 
     @Override
     public List<CryptoCurrency> findAll() {
