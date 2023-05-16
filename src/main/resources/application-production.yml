@@ -1,10 +1,15 @@
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:54320/db
-    username: user
-    password: pass
+    url: jdbc:h2:mem:crypto
+    username: miktia
+    password: nadvorje
+    driver-class-name: org.h2.Driver
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
 logging:
   level:
-    root: WARN
+    root: INFO
 scheduler:
   cron: "0 * * * * *"
