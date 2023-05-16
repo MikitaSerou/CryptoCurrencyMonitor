@@ -1,6 +1,8 @@
 package com.serov.cryptocurrencymonitor.config;
 
 import com.serov.cryptocurrencymonitor.payload.response.AvailableCurrencyResponse;
+import org.springframework.cache.CacheManager;
+import org.springframework.cache.concurrent.ConcurrentMapCacheManager;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -17,5 +19,10 @@ public class GeneralConfig {
                 new AvailableCurrencyResponse(80L, "ETH"),
                 new AvailableCurrencyResponse(48543L, "SOL")
         );
+    }
+
+    @Bean
+    public CacheManager cacheManager() {
+        return new ConcurrentMapCacheManager("currencies");
     }
 }
