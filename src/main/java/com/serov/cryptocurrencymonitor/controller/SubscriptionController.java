@@ -1,7 +1,7 @@
 package com.serov.cryptocurrencymonitor.controller;
 
-import com.serov.cryptocurrencymonitor.payload.response.ResponseMessage;
 import com.serov.cryptocurrencymonitor.payload.request.SubscriptionDto;
+import com.serov.cryptocurrencymonitor.payload.response.ResponseMessage;
 import com.serov.cryptocurrencymonitor.service.SubscriptionService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -21,8 +21,9 @@ public class SubscriptionController {
 
     @PostMapping("/notify")
     public ResponseMessage subscribe(@RequestBody SubscriptionDto dto){
-        log.debug("User {} subscribed to currency {}", dto.username(), dto.symbol());
-        return new ResponseMessage("OK");
+        log.debug("User {} subscribing to currency {}", dto.username(), dto.symbol());
+        subscriptionService.subscribeUserToCurrency(dto);
+        return new ResponseMessage("User " + dto.username() + " was subscribed to currency " + dto.symbol());
     }
 
 }

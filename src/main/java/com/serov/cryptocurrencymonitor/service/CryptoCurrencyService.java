@@ -14,4 +14,6 @@ public interface CryptoCurrencyService {
     List<CryptoCurrency> findAll();
 
     CryptoCurrency getById(Long id);
+
+    CryptoCurrency findBySymbol(String symbol);
 }

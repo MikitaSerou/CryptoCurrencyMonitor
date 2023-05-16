@@ -53,4 +53,13 @@ public class CryptoCurrencyServiceImpl implements CryptoCurrencyService {
                 .orElseThrow(() -> new CurrencyException("Can not find currency by id: " + id));
     }
 
+    @Override
+    public CryptoCurrency findBySymbol(String symbol) {
+        CryptoCurrency currency = cryptoCurrencyrepository
+                .findBySymbol(symbol)
+                .orElseThrow(() -> new CurrencyException("Can not find currency by symbol " + symbol));
+        log.debug("Fetched currency by symbol \"{}\": {}", symbol, currency);
+        return currency;
+    }
+
 }
