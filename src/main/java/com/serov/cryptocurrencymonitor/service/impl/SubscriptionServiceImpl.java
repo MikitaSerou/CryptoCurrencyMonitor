@@ -46,7 +46,25 @@ public class SubscriptionServiceImpl implements SubscriptionService {
     }
 
     @Override
-    public List<Subscription> findAll() {
-        return subscriptionRepository.findAll();
+    @Transactional
+    public void notifyUsersSubscriptionsPriceChange() {
+        List<Subscription> subscriptionsList = subscriptionRepository.findAll();
+        subscriptionsList.forEach(this::processSubscription);
     }
+
+    private void processSubscription(Subscription subscription) {
+        CryptoCurrency currentCurrencyState = subscription.getCurrency();
+        double priceDifferencePercentage = calculatePriceDifferencePercentage(
+                currentCurrencyState.getPrice(),
+                subscription.getSubscribedPrice());
+        if (priceDifferencePercentage > 1.0) {
+            log.warn(String.format("Price change for currency %s exceeded 1%%. User: %s. Price difference: %.2f%%",
+                    currentCurrencyState.getSymbol(), subscription.getUsername(), priceDifferencePercentage));
+        }
+    }
+
+    private double calculatePriceDifferencePercentage(Double currentPrice, Double subscribedPrice) {
+        return Math.abs((currentPrice - subscribedPrice) / subscribedPrice * 100);
+    }
+
 }
