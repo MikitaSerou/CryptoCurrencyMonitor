@@ -7,3 +7,5 @@ spring:
     password: pass
 scheduler:
   rate: 60000
+api:
+  url: https://api.coinlore.net/api/ticker/?id=%s

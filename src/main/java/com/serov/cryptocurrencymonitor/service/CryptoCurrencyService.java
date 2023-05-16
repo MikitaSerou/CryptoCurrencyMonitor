@@ -9,9 +9,9 @@ public interface CryptoCurrencyService {
 
     List<AvailableCurrencyResponse> getAvailableCurrenciesList();
 
+    void updateCurrencies();
+
     List<CryptoCurrency> findAll();
 
     CryptoCurrency getById(Long id);
-
-    List<Long> findAllIds();
 }
