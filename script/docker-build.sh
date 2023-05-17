@@ -1,1 +1,1 @@
-cd ../ ; mvn -P production clean install ; docker build -t cryptocurrencymonitor:latest .
+cd ../ ; sh ./mvnw -P production clean install ; docker build -t cryptocurrency-monitor:latest .
