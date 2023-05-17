@@ -6,6 +6,7 @@ import com.serov.cryptocurrencymonitor.payload.ExternalApiResponse;
 import com.serov.cryptocurrencymonitor.payload.response.AvailableCurrencyResponse;
 import com.serov.cryptocurrencymonitor.repository.CryptoCurrencyRepository;
 import com.serov.cryptocurrencymonitor.service.ExternalApiService;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.junit.jupiter.MockitoExtension;
@@ -22,6 +23,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.*;
 
 @SpringBootTest
+@DisplayName("Testing Currency service")
 @ExtendWith(MockitoExtension.class)
 class CryptoCurrencyServiceImplTest {
 
@@ -35,6 +37,7 @@ class CryptoCurrencyServiceImplTest {
     private ExternalApiService externalApiService;
 
     @Test
+    @DisplayName("Testing of preconfigured available currencies list")
     void testGetAvailableCurrenciesList() {
         List<AvailableCurrencyResponse> expectedList = Arrays.asList(
                 new AvailableCurrencyResponse(90L, "BTC"),
@@ -47,6 +50,7 @@ class CryptoCurrencyServiceImplTest {
     }
 
     @Test
+    @DisplayName("Currency updating test")
     void testUpdateCurrencies() {
         List<Long> idList = List.of(1L, 2L, 3L);
         List<ExternalApiResponse> fetchedInfo = List.of(
@@ -65,6 +69,7 @@ class CryptoCurrencyServiceImplTest {
     }
 
     @Test
+    @DisplayName("Testing getting all currencies from the database")
     void testFindAll() {
         List<CryptoCurrency> expectedCurrencies = List.of(
                 new CryptoCurrency(1L, 50000.0, "BTC"),
@@ -80,6 +85,7 @@ class CryptoCurrencyServiceImplTest {
     }
 
     @Test
+    @DisplayName("Testing retrieving currency by ID")
     void testGetById() {
         Long currencyId = 90L;
         CryptoCurrency expectedCurrency = new CryptoCurrency(currencyId, 50000.0, "BTC");
@@ -92,6 +98,7 @@ class CryptoCurrencyServiceImplTest {
     }
 
     @Test
+    @DisplayName("Testing retrieving currency by symbol")
     void testFindBySymbol() {
         String symbol = "BTC";
         CryptoCurrency expectedCurrency = new CryptoCurrency(90L, 50000.0, symbol);
@@ -104,6 +111,7 @@ class CryptoCurrencyServiceImplTest {
     }
 
     @Test
+    @DisplayName("Test for throwing an exception when retrieving by non-existent ID")
     public void testGetByIdThrowsCurrencyExceptionWhenCurrencyNotFound() {
         Long id = 1L;
         when(cryptoCurrencyRepository.findById(id)).thenReturn(Optional.empty());
@@ -112,6 +120,7 @@ class CryptoCurrencyServiceImplTest {
     }
 
     @Test
+    @DisplayName("Test for throwing an exception when retrieving by non-existent symbol")
     public void testFindBySymbolThrowsCurrencyExceptionWhenCurrencyNotFound() {
         String symbol = "LOL";
         when(cryptoCurrencyRepository.findBySymbol(symbol)).thenReturn(Optional.empty());
