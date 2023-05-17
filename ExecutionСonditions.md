@@ -28,3 +28,7 @@ IDFinance Lab
 
 *   Когда пользователь запрашивает актуальную цену для указаной криптовалюты - данные должны быть получены из базы данных
 *   опубликуйте свою работу на github как публичный проект и скинте на ссылку по почте [mailto:yana.kobzar@idfinance.com](mailto:yana.kobzar@idfinance.com).
+
+http://localhost:8080/swagger-ui/index.html
+sh ./mvnw spring-boot:run -Dspring.profiles.active=production  
+   

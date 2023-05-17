@@ -17,7 +17,7 @@ public class SchedulerService {
 
     @Scheduled(cron = "${scheduler.cron}")
     public void updateInformation() {
-        log.warn("Currencies info updating");
+        log.info("Currencies info updating");
         cryptoCurrencyService.updateCurrencies();
         subscriptionService.notifyUsersSubscriptionsPriceChange();
     }
