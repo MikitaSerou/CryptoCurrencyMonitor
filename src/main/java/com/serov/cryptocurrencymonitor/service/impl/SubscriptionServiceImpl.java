@@ -58,7 +58,7 @@ public class SubscriptionServiceImpl implements SubscriptionService {
                 currentCurrencyState.getPrice(),
                 subscription.getSubscribedPrice());
         if (priceDifferencePercentage > 1.0) {
-            log.warn(String.format("Price change for currency %s exceeded 1%%. User: %s. Price difference: %.2f%%",
+            log.warn(String.format("Price change for currency %s exceeded 1%%. User: %s. Price difference: %.3f%%",
                     currentCurrencyState.getSymbol(), subscription.getUsername(), priceDifferencePercentage));
         }
     }
