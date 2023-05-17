@@ -40,7 +40,7 @@ class SubscriptionServiceImplTest {
 
     @Test
     @DisplayName("Testing the subscription process")
-    public void testSubscribeUserToCurrency() {
+    void testSubscribeUserToCurrency() {
         SubscriptionDto dto = new SubscriptionDto("user1", "BTC");
         CryptoCurrency currency = new CryptoCurrency(1L, 50000.0, "BTC");
 
