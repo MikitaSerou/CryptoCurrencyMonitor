@@ -1,0 +1,10 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:54320/db
+    username: user
+    password: pass
+logging:
+  level:
+    root: DEBUG
+scheduler:
+  cron: "0 * * * * *"

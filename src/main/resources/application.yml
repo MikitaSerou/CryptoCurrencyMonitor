@@ -1,5 +1,16 @@
 spring:
+  profiles:
+    active: @maven.profile@
   datasource:
-    url: jdbc:postgresql://uwp-serov:54320/db
+    url: jdbc:postgresql://localhost:54320/db
     username: user
     password: pass
+scheduler:
+  rate: 60000
+api:
+  url: https://api.coinlore.net/api/ticker/?id=%s
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
