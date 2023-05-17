@@ -39,20 +39,17 @@ public class ExternalApiServiceImpl implements ExternalApiService {
         try {
             return restTemplate.getForEntity(requestUrl, String.class);
         } catch (RestClientException e) {
-            log.error("Error while trying to fetch external api data: ", e);
             throw new RuntimeException("Error while trying to fetch external api data: " + e.getMessage());
         }
     }
 
     private String getJsonResult(ResponseEntity<String> response) {
         if (response.getStatusCode() != HttpStatus.OK) {
-            log.error("Error while trying to fetch external api data. Status code: " + response.getStatusCode());
             throw new RuntimeException("Error while trying to fetch external api data. Status code: " + response.getStatusCode());
         }
         String jsonResult = response.getBody();
         if (jsonResult == null || jsonResult.isEmpty()) {
-            log.error("Empty response body while trying to fetch external api data.");
-            throw new CurrencyException("Empty response body while trying to fetch external api data.");
+            throw new CurrencyException("Empty response body while trying to fetch external api data. Result is empty.");
         }
         return jsonResult;
     }
@@ -60,6 +57,6 @@ public class ExternalApiServiceImpl implements ExternalApiService {
     private ExternalApiResponse parseApiResponse(String jsonResult) {
         return Arrays.stream(gson.fromJson(jsonResult, ExternalApiResponse[].class))
                 .findFirst()
-                .orElseThrow(() -> new RuntimeException("Can't fetch api data"));
+                .orElseThrow(() -> new RuntimeException("Error while parsing api data."));
     }
 }
