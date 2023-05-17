@@ -36,7 +36,7 @@ public class ExternalApiServiceImplTest {
 
     @Test
     @DisplayName("Test for successfully fetching")
-    public void testFetchActualCurrencyPriceSuccess() {
+    void testFetchActualCurrencyPriceSuccess() {
         Long currencyId = 123L;
         String jsonResponse = "[{ \"id\": 123, \"symbol\": \"Bitcoin\", \"price_usd\": \"50000.0\" }]";
         ExternalApiResponse expectedResponse = new ExternalApiResponse(123L, "Bitcoin", 50000.0);
@@ -52,7 +52,7 @@ public class ExternalApiServiceImplTest {
 
     @Test
     @DisplayName("Test for throwing an exception when RestClientException occurs")
-    public void testFetchActualCurrencyPriceErrorRestClientException() {
+    void testFetchActualCurrencyPriceErrorRestClientException() {
         Long currencyId = 123L;
 
         when(restTemplate.getForEntity(String.format(apiUrl, currencyId), String.class))
@@ -66,7 +66,7 @@ public class ExternalApiServiceImplTest {
 
     @Test
     @DisplayName("Test for throwing an exception when non-OK status")
-    public void testFetchActualCurrencyPriceErrorStatusCode() {
+    void testFetchActualCurrencyPriceErrorStatusCode() {
         Long currencyId = 123L;
         String emptyResponseBody = "";
 
@@ -82,7 +82,7 @@ public class ExternalApiServiceImplTest {
 
     @Test
     @DisplayName("Test for throwing an exception when the response body is empty")
-    public void testFetchActualCurrencyPriceEmptyResponseBody() {
+    void testFetchActualCurrencyPriceEmptyResponseBody() {
         Long currencyId = 123L;
         String jsonResponse = "";
 
@@ -98,7 +98,7 @@ public class ExternalApiServiceImplTest {
 
     @Test
     @DisplayName("Test for throwing an exception when the fetched array is empty")
-    public void testFetchActualCurrencyPriceEmptyApiResponse() {
+    void testFetchActualCurrencyPriceEmptyApiResponse() {
         Long currencyId = 123L;
         String jsonResponse = "[]";
 

@@ -112,7 +112,7 @@ class CryptoCurrencyServiceImplTest {
 
     @Test
     @DisplayName("Test for throwing an exception when retrieving by non-existent ID")
-    public void testGetByIdThrowsCurrencyExceptionWhenCurrencyNotFound() {
+    void testGetByIdThrowsCurrencyExceptionWhenCurrencyNotFound() {
         Long id = 1L;
         when(cryptoCurrencyRepository.findById(id)).thenReturn(Optional.empty());
 
@@ -121,7 +121,7 @@ class CryptoCurrencyServiceImplTest {
 
     @Test
     @DisplayName("Test for throwing an exception when retrieving by non-existent symbol")
-    public void testFindBySymbolThrowsCurrencyExceptionWhenCurrencyNotFound() {
+    void testFindBySymbolThrowsCurrencyExceptionWhenCurrencyNotFound() {
         String symbol = "LOL";
         when(cryptoCurrencyRepository.findBySymbol(symbol)).thenReturn(Optional.empty());
 
